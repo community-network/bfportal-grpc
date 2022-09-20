@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package web.localization;
+
+service ClientLocalization {
+    rpc getTranslations (GetTranslationsRequest) returns (GetTranslationsResponse) {}
+}
+
+message SidList {
+    repeated string sids = 1;
+}
+
+message CategoryIdList {
+    repeated int32 ids = 1;
+}
+
+message SubCategoryIdList {
+    repeated int32 ids = 1;
+}
+
+message TranslationsQuery {
+    SidList sidList = 1;
+    CategoryIdList categoryIdList = 2;
+    SubCategoryIdList subCategoryIdList = 3;
+}
+
+message LocalizedText {
+    string sid = 1;
+    string localizedText = 2;
+    int32 categoryId = 3;
+}
+
+message Timestamp {
+    int64 seconds = 1 [jstype=JS_STRING];
+    int32 nanos = 2;
+}
+
+message GetTranslationsRequest {
+    TranslationsQuery translationsQuery = 1;
+    string locale = 4;
+    Timestamp fetchFrom = 5;
+}
+
+message GetTranslationsResponse {
+    repeated LocalizedText localizedTexts = 3;
+    Timestamp fetchedUntil = 4;
+}

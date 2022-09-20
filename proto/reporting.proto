@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package web.reporting;
+
+service WebReporting {
+    rpc reportPlayground (ReportPlaygroundRequest) returns (ReportPlaygroundResponse) {}
+}
+
+enum Category {
+    UNKNOWN_CATEGORY = 0;
+    CHEATING = 1;
+    HARASSMENT = 2;
+    SPAM = 3;
+    PLAGIARISM = 4;
+    HATE_SPEECH = 5;
+    SEXUALLY_EXPLICIT = 6;
+    CHILD_SOLICITATION = 7;
+    TERRORIST_THREAT = 8;
+    CLIENT_HACK = 9;
+    SUICIDE_THREAT = 10;
+    DOXING = 11;
+    ADVERTISING = 12;
+    INAPPROPRIATE = 13;
+    VIOLENT = 14;
+    OFFENSIVE = 15;
+    OFFENSIVE_CHAT = 16;
+    OFFENSIVE_NAME = 17;
+}
+
+message StringValue {
+    string value = 1;
+}
+
+message ReportPlaygroundRequest {
+    string protocolVersion = 1;
+    string playgroundId = 2;
+    Category category = 3;
+    StringValue requesterEmail = 4;
+    StringValue subject = 5;
+}
+
+message ReportPlaygroundResponse {
+    string petitionId = 1;
+}

@@ -1,0 +1,29 @@
+{
+  "name": "grpc-web",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "test": "ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "google-protobuf": "^3.21.0",
+    "grpc-web": "1.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.18",
+    "ts-node": "^10.9.1",
+    "xhr2": "^0.2.1",
+    "protobufjs": "^7.1.1"
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "package-lock.json",
+    "tsconfig.json",
+    "src/**"
+  ]
+}

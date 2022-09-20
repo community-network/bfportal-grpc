@@ -1,0 +1,74 @@
+syntax = "proto3";
+
+package web.authentication;
+
+service ClientAuthentication {
+    rpc viaAuthCode (AuthRequest) returns (AuthResponse) {}
+    rpc logout (Empty) returns (Empty) {}
+}
+
+message PlayerInfo {
+    int64 nucleusId = 1;
+    int64 personaId = 2;
+    int32 platformId = 3;
+}
+
+enum Platform {
+    UNKNOWN = 0;
+    PC = 1;
+    PS4 = 2;
+    XBOXONE = 3;
+    PS5 = 4;
+    XBSX = 5;
+    COMMON = 6;
+}
+
+enum Reason {
+    NONE = 0;
+    PLAYER = 1;
+    SYNC = 2;
+}
+
+message AuthRequest {
+    string authCode = 1;
+    string redirectUri = 2;
+    string product = 3;
+    string firstPartyId = 4;
+    Platform platform = 5;
+}
+
+message Duration {
+    int64 seconds = 1;
+    int32 nanos = 2;
+}
+
+message TimeTravel {
+    Duration offset = 1;
+}
+
+message ProtocolVersionOverride {
+    string original = 1;
+    string overridden = 2;
+    Reason reason = 3;
+}
+
+enum UserBits {
+    USER_BIT_UNSPECIFIED = 0;
+    USER_BIT_ACCEPTED_TOS = 1;
+    USER_BIT_ENABLE_USERSHARING = 2;
+    USER_BIT_ENABLE_CRASHREPORTS = 3;
+    USER_BIT_COMPLETED_TUTORIAL = 4;
+    USER_BIT_CLIENT_ENABLE_USAGESHARING = 5;
+}
+
+message Empty {
+}
+
+message AuthResponse {
+    string sessionId = 1;
+    PlayerInfo player = 3;
+    repeated UserBits userBits = 4;
+    TimeTravel timeTravel = 5;
+    ProtocolVersionOverride protocolVersionOverride = 6;
+}
+
