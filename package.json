@@ -2,10 +2,10 @@
   "name": "grpc-web",
   "version": "1.0.0",
   "description": "",
-  "main": "src/index.js",
-  "types": "src/index.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "scripts": {
-    "test": "ts-node src/index.ts"
+    "test": "ts-node testing/index.ts"
   },
   "author": "",
   "license": "ISC",
