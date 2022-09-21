@@ -1,4 +1,6 @@
-import * as jspb from "google-protobuf"
+import * as jspb from 'google-protobuf'
+
+
 
 export class StringValue extends jspb.Message {
   getValue(): string;

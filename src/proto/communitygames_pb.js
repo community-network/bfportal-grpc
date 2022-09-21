@@ -1,16 +1,19 @@
-// source: proto/communitygames.proto
+// source: communitygames.proto
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
 
 goog.exportSymbol('proto.web.communitygames.AssetCategory', null, global);
 goog.exportSymbol('proto.web.communitygames.AssetCategoryBoolean', null, global);
@@ -5658,8 +5661,10 @@ proto.web.communitygames.SparseIntEntity.deserializeBinaryFromReader = function(
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<number>} */ (reader.readPackedInt32());
-      msg.setValuesList(value);
+      var values = /** @type {!Array<number>} */ (reader.isDelimited() ? reader.readPackedInt32() : [reader.readInt32()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addValues(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -8137,8 +8142,10 @@ proto.web.communitygames.PlatformRestrictions.deserializeBinaryFromReader = func
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<!proto.web.communitygames.Platform>} */ (reader.readPackedEnum());
-      msg.setPlatformsList(value);
+      var values = /** @type {!Array<!proto.web.communitygames.Platform>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addPlatforms(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -8293,8 +8300,10 @@ proto.web.communitygames.InputMethodResrictions.deserializeBinaryFromReader = fu
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Array<!proto.web.communitygames.InputMethods>} */ (reader.readPackedEnum());
-      msg.setInputmethodsList(value);
+      var values = /** @type {!Array<!proto.web.communitygames.InputMethods>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addInputmethods(values[i]);
+      }
       break;
     default:
       reader.skipField();
@@ -11823,8 +11832,10 @@ proto.web.communitygames.GetBlueprintsByIdRequest.deserializeBinaryFromReader = 
       msg.addBlueprintids(value);
       break;
     case 2:
-      var value = /** @type {!Array<!proto.web.communitygames.IncludeFields>} */ (reader.readPackedEnum());
-      msg.setIncludefieldsList(value);
+      var values = /** @type {!Array<!proto.web.communitygames.IncludeFields>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addIncludefields(values[i]);
+      }
       break;
     default:
       reader.skipField();

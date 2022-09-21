@@ -22,7 +22,7 @@ proto.web.authentication = require('./authentication_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -30,7 +30,7 @@ proto.web.authentication = require('./authentication_pb.js');
 proto.web.authentication.ClientAuthenticationClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -48,7 +48,7 @@ proto.web.authentication.ClientAuthenticationClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -56,7 +56,7 @@ proto.web.authentication.ClientAuthenticationClient =
 proto.web.authentication.ClientAuthenticationPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -94,30 +94,11 @@ const methodDescriptor_ClientAuthentication_viaAuthCode = new grpc.web.MethodDes
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.authentication.AuthRequest,
- *   !proto.web.authentication.AuthResponse>}
- */
-const methodInfo_ClientAuthentication_viaAuthCode = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.authentication.AuthResponse,
-  /**
-   * @param {!proto.web.authentication.AuthRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.authentication.AuthResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.authentication.AuthRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.authentication.AuthResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.authentication.AuthResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.authentication.AuthResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -136,10 +117,10 @@ proto.web.authentication.ClientAuthenticationClient.prototype.viaAuthCode =
 /**
  * @param {!proto.web.authentication.AuthRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.authentication.AuthResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.authentication.ClientAuthenticationPromiseClient.prototype.viaAuthCode =
     function(request, metadata) {
@@ -174,30 +155,11 @@ const methodDescriptor_ClientAuthentication_logout = new grpc.web.MethodDescript
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.authentication.Empty,
- *   !proto.web.authentication.Empty>}
- */
-const methodInfo_ClientAuthentication_logout = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.authentication.Empty,
-  /**
-   * @param {!proto.web.authentication.Empty} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.authentication.Empty.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.authentication.Empty} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.authentication.Empty)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.authentication.Empty)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.authentication.Empty>|undefined}
  *     The XHR Node Readable Stream
@@ -216,10 +178,10 @@ proto.web.authentication.ClientAuthenticationClient.prototype.logout =
 /**
  * @param {!proto.web.authentication.Empty} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.authentication.Empty>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.authentication.ClientAuthenticationPromiseClient.prototype.logout =
     function(request, metadata) {

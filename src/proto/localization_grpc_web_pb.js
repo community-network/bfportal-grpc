@@ -22,7 +22,7 @@ proto.web.localization = require('./localization_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -30,7 +30,7 @@ proto.web.localization = require('./localization_pb.js');
 proto.web.localization.ClientLocalizationClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -48,7 +48,7 @@ proto.web.localization.ClientLocalizationClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -56,7 +56,7 @@ proto.web.localization.ClientLocalizationClient =
 proto.web.localization.ClientLocalizationPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -94,30 +94,11 @@ const methodDescriptor_ClientLocalization_getTranslations = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.localization.GetTranslationsRequest,
- *   !proto.web.localization.GetTranslationsResponse>}
- */
-const methodInfo_ClientLocalization_getTranslations = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.localization.GetTranslationsResponse,
-  /**
-   * @param {!proto.web.localization.GetTranslationsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.localization.GetTranslationsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.localization.GetTranslationsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.localization.GetTranslationsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.localization.GetTranslationsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.localization.GetTranslationsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -136,10 +117,10 @@ proto.web.localization.ClientLocalizationClient.prototype.getTranslations =
 /**
  * @param {!proto.web.localization.GetTranslationsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.localization.GetTranslationsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.localization.ClientLocalizationPromiseClient.prototype.getTranslations =
     function(request, metadata) {

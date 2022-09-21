@@ -1,158 +1,139 @@
 import * as grpcWeb from 'grpc-web';
 
-import {
-  CreatePlaygroundRequest,
-  CreatePlaygroundResponse,
-  DeletePlaygroundRequest,
-  DeletePlaygroundResponse,
-  GetBlueprintsByIdRequest,
-  GetBlueprintsByIdResponse,
-  GetConstraintsRequest,
-  GetConstraintsResponse,
-  GetPlaygroundRequest,
-  GetProgressionTypesRequest,
-  GetProgressionTypesResponse,
-  GetScheduledBlueprintsRequest,
-  GetScheduledBlueprintsResponse,
-  ListPlaygroundsByOwnerRequest,
-  ListPlaygroundsByOwnerResponse,
-  PlaygroundInfoResponse,
-  SharePlaygroundRequest,
-  SharePlaygroundResponse,
-  UpdatePlaygroundRequest,
-  UpdatePlaygroundResponse} from './communitygames_pb';
+import * as communitygames_pb from './communitygames_pb';
+
 
 export class CommunityGamesClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   createPlayground(
-    request: CreatePlaygroundRequest,
+    request: communitygames_pb.CreatePlaygroundRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: CreatePlaygroundResponse) => void
-  ): grpcWeb.ClientReadableStream<CreatePlaygroundResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.CreatePlaygroundResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.CreatePlaygroundResponse>;
 
   updatePlayground(
-    request: UpdatePlaygroundRequest,
+    request: communitygames_pb.UpdatePlaygroundRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: UpdatePlaygroundResponse) => void
-  ): grpcWeb.ClientReadableStream<UpdatePlaygroundResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.UpdatePlaygroundResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.UpdatePlaygroundResponse>;
 
   deletePlayground(
-    request: DeletePlaygroundRequest,
+    request: communitygames_pb.DeletePlaygroundRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: DeletePlaygroundResponse) => void
-  ): grpcWeb.ClientReadableStream<DeletePlaygroundResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.DeletePlaygroundResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.DeletePlaygroundResponse>;
 
   getPlayground(
-    request: GetPlaygroundRequest,
+    request: communitygames_pb.GetPlaygroundRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: PlaygroundInfoResponse) => void
-  ): grpcWeb.ClientReadableStream<PlaygroundInfoResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.PlaygroundInfoResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.PlaygroundInfoResponse>;
 
   listPlaygroundsByOwner(
-    request: ListPlaygroundsByOwnerRequest,
+    request: communitygames_pb.ListPlaygroundsByOwnerRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: ListPlaygroundsByOwnerResponse) => void
-  ): grpcWeb.ClientReadableStream<ListPlaygroundsByOwnerResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.ListPlaygroundsByOwnerResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.ListPlaygroundsByOwnerResponse>;
 
   getBlueprintsById(
-    request: GetBlueprintsByIdRequest,
+    request: communitygames_pb.GetBlueprintsByIdRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: GetBlueprintsByIdResponse) => void
-  ): grpcWeb.ClientReadableStream<GetBlueprintsByIdResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.GetBlueprintsByIdResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.GetBlueprintsByIdResponse>;
 
   getScheduledBlueprints(
-    request: GetScheduledBlueprintsRequest,
+    request: communitygames_pb.GetScheduledBlueprintsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: GetScheduledBlueprintsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetScheduledBlueprintsResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.GetScheduledBlueprintsResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.GetScheduledBlueprintsResponse>;
 
   getConstraints(
-    request: GetConstraintsRequest,
+    request: communitygames_pb.GetConstraintsRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: GetConstraintsResponse) => void
-  ): grpcWeb.ClientReadableStream<GetConstraintsResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.GetConstraintsResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.GetConstraintsResponse>;
 
   sharePlayground(
-    request: SharePlaygroundRequest,
+    request: communitygames_pb.SharePlaygroundRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: SharePlaygroundResponse) => void
-  ): grpcWeb.ClientReadableStream<SharePlaygroundResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.SharePlaygroundResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.SharePlaygroundResponse>;
 
   getProgressionTypes(
-    request: GetProgressionTypesRequest,
+    request: communitygames_pb.GetProgressionTypesRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: GetProgressionTypesResponse) => void
-  ): grpcWeb.ClientReadableStream<GetProgressionTypesResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: communitygames_pb.GetProgressionTypesResponse) => void
+  ): grpcWeb.ClientReadableStream<communitygames_pb.GetProgressionTypesResponse>;
 
 }
 
 export class CommunityGamesPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   createPlayground(
-    request: CreatePlaygroundRequest,
+    request: communitygames_pb.CreatePlaygroundRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<CreatePlaygroundResponse>;
+  ): Promise<communitygames_pb.CreatePlaygroundResponse>;
 
   updatePlayground(
-    request: UpdatePlaygroundRequest,
+    request: communitygames_pb.UpdatePlaygroundRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<UpdatePlaygroundResponse>;
+  ): Promise<communitygames_pb.UpdatePlaygroundResponse>;
 
   deletePlayground(
-    request: DeletePlaygroundRequest,
+    request: communitygames_pb.DeletePlaygroundRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<DeletePlaygroundResponse>;
+  ): Promise<communitygames_pb.DeletePlaygroundResponse>;
 
   getPlayground(
-    request: GetPlaygroundRequest,
+    request: communitygames_pb.GetPlaygroundRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<PlaygroundInfoResponse>;
+  ): Promise<communitygames_pb.PlaygroundInfoResponse>;
 
   listPlaygroundsByOwner(
-    request: ListPlaygroundsByOwnerRequest,
+    request: communitygames_pb.ListPlaygroundsByOwnerRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<ListPlaygroundsByOwnerResponse>;
+  ): Promise<communitygames_pb.ListPlaygroundsByOwnerResponse>;
 
   getBlueprintsById(
-    request: GetBlueprintsByIdRequest,
+    request: communitygames_pb.GetBlueprintsByIdRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetBlueprintsByIdResponse>;
+  ): Promise<communitygames_pb.GetBlueprintsByIdResponse>;
 
   getScheduledBlueprints(
-    request: GetScheduledBlueprintsRequest,
+    request: communitygames_pb.GetScheduledBlueprintsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetScheduledBlueprintsResponse>;
+  ): Promise<communitygames_pb.GetScheduledBlueprintsResponse>;
 
   getConstraints(
-    request: GetConstraintsRequest,
+    request: communitygames_pb.GetConstraintsRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetConstraintsResponse>;
+  ): Promise<communitygames_pb.GetConstraintsResponse>;
 
   sharePlayground(
-    request: SharePlaygroundRequest,
+    request: communitygames_pb.SharePlaygroundRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<SharePlaygroundResponse>;
+  ): Promise<communitygames_pb.SharePlaygroundResponse>;
 
   getProgressionTypes(
-    request: GetProgressionTypesRequest,
+    request: communitygames_pb.GetProgressionTypesRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<GetProgressionTypesResponse>;
+  ): Promise<communitygames_pb.GetProgressionTypesResponse>;
 
 }
 

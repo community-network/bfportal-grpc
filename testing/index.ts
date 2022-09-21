@@ -1,8 +1,8 @@
 import { CommunityGamesClient, communitygames } from 'BfPortal';
 import * as grpcWeb from 'grpc-web';
 import { load } from "protobufjs";
-global.XMLHttpRequest = require('xhr2');
-var fs = require('fs');
+// global.XMLHttpRequest = require('xhr2');
+var fs = require("fs");
 
 const communityGames = new CommunityGamesClient('https://kingston-prod-wgw-envoy.ops.dice.se', null);
 var metadata = {

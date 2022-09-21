@@ -22,7 +22,7 @@ proto.web.communitygames = require('./communitygames_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -30,7 +30,7 @@ proto.web.communitygames = require('./communitygames_pb.js');
 proto.web.communitygames.CommunityGamesClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -48,7 +48,7 @@ proto.web.communitygames.CommunityGamesClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -56,7 +56,7 @@ proto.web.communitygames.CommunityGamesClient =
 proto.web.communitygames.CommunityGamesPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -94,30 +94,11 @@ const methodDescriptor_CommunityGames_createPlayground = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.CreatePlaygroundRequest,
- *   !proto.web.communitygames.CreatePlaygroundResponse>}
- */
-const methodInfo_CommunityGames_createPlayground = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.CreatePlaygroundResponse,
-  /**
-   * @param {!proto.web.communitygames.CreatePlaygroundRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.CreatePlaygroundResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.CreatePlaygroundRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.CreatePlaygroundResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.CreatePlaygroundResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.CreatePlaygroundResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -136,10 +117,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.createPlayground =
 /**
  * @param {!proto.web.communitygames.CreatePlaygroundRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.CreatePlaygroundResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.createPlayground =
     function(request, metadata) {
@@ -174,30 +155,11 @@ const methodDescriptor_CommunityGames_updatePlayground = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.UpdatePlaygroundRequest,
- *   !proto.web.communitygames.UpdatePlaygroundResponse>}
- */
-const methodInfo_CommunityGames_updatePlayground = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.UpdatePlaygroundResponse,
-  /**
-   * @param {!proto.web.communitygames.UpdatePlaygroundRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.UpdatePlaygroundResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.UpdatePlaygroundRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.UpdatePlaygroundResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.UpdatePlaygroundResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.UpdatePlaygroundResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -216,10 +178,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.updatePlayground =
 /**
  * @param {!proto.web.communitygames.UpdatePlaygroundRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.UpdatePlaygroundResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.updatePlayground =
     function(request, metadata) {
@@ -254,30 +216,11 @@ const methodDescriptor_CommunityGames_deletePlayground = new grpc.web.MethodDesc
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.DeletePlaygroundRequest,
- *   !proto.web.communitygames.DeletePlaygroundResponse>}
- */
-const methodInfo_CommunityGames_deletePlayground = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.DeletePlaygroundResponse,
-  /**
-   * @param {!proto.web.communitygames.DeletePlaygroundRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.DeletePlaygroundResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.DeletePlaygroundRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.DeletePlaygroundResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.DeletePlaygroundResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.DeletePlaygroundResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -296,10 +239,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.deletePlayground =
 /**
  * @param {!proto.web.communitygames.DeletePlaygroundRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.DeletePlaygroundResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.deletePlayground =
     function(request, metadata) {
@@ -334,30 +277,11 @@ const methodDescriptor_CommunityGames_getPlayground = new grpc.web.MethodDescrip
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.GetPlaygroundRequest,
- *   !proto.web.communitygames.PlaygroundInfoResponse>}
- */
-const methodInfo_CommunityGames_getPlayground = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.PlaygroundInfoResponse,
-  /**
-   * @param {!proto.web.communitygames.GetPlaygroundRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.PlaygroundInfoResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.GetPlaygroundRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.PlaygroundInfoResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.PlaygroundInfoResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.PlaygroundInfoResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -376,10 +300,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.getPlayground =
 /**
  * @param {!proto.web.communitygames.GetPlaygroundRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.PlaygroundInfoResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.getPlayground =
     function(request, metadata) {
@@ -414,30 +338,11 @@ const methodDescriptor_CommunityGames_listPlaygroundsByOwner = new grpc.web.Meth
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.ListPlaygroundsByOwnerRequest,
- *   !proto.web.communitygames.ListPlaygroundsByOwnerResponse>}
- */
-const methodInfo_CommunityGames_listPlaygroundsByOwner = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.ListPlaygroundsByOwnerResponse,
-  /**
-   * @param {!proto.web.communitygames.ListPlaygroundsByOwnerRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.ListPlaygroundsByOwnerResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.ListPlaygroundsByOwnerRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.ListPlaygroundsByOwnerResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.ListPlaygroundsByOwnerResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.ListPlaygroundsByOwnerResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -456,10 +361,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.listPlaygroundsByOwner =
 /**
  * @param {!proto.web.communitygames.ListPlaygroundsByOwnerRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.ListPlaygroundsByOwnerResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.listPlaygroundsByOwner =
     function(request, metadata) {
@@ -494,30 +399,11 @@ const methodDescriptor_CommunityGames_getBlueprintsById = new grpc.web.MethodDes
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.GetBlueprintsByIdRequest,
- *   !proto.web.communitygames.GetBlueprintsByIdResponse>}
- */
-const methodInfo_CommunityGames_getBlueprintsById = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.GetBlueprintsByIdResponse,
-  /**
-   * @param {!proto.web.communitygames.GetBlueprintsByIdRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.GetBlueprintsByIdResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.GetBlueprintsByIdRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.GetBlueprintsByIdResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.GetBlueprintsByIdResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.GetBlueprintsByIdResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -536,10 +422,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.getBlueprintsById =
 /**
  * @param {!proto.web.communitygames.GetBlueprintsByIdRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.GetBlueprintsByIdResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.getBlueprintsById =
     function(request, metadata) {
@@ -574,30 +460,11 @@ const methodDescriptor_CommunityGames_getScheduledBlueprints = new grpc.web.Meth
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.GetScheduledBlueprintsRequest,
- *   !proto.web.communitygames.GetScheduledBlueprintsResponse>}
- */
-const methodInfo_CommunityGames_getScheduledBlueprints = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.GetScheduledBlueprintsResponse,
-  /**
-   * @param {!proto.web.communitygames.GetScheduledBlueprintsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.GetScheduledBlueprintsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.GetScheduledBlueprintsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.GetScheduledBlueprintsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.GetScheduledBlueprintsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.GetScheduledBlueprintsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -616,10 +483,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.getScheduledBlueprints =
 /**
  * @param {!proto.web.communitygames.GetScheduledBlueprintsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.GetScheduledBlueprintsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.getScheduledBlueprints =
     function(request, metadata) {
@@ -654,30 +521,11 @@ const methodDescriptor_CommunityGames_getConstraints = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.GetConstraintsRequest,
- *   !proto.web.communitygames.GetConstraintsResponse>}
- */
-const methodInfo_CommunityGames_getConstraints = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.GetConstraintsResponse,
-  /**
-   * @param {!proto.web.communitygames.GetConstraintsRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.GetConstraintsResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.GetConstraintsRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.GetConstraintsResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.GetConstraintsResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.GetConstraintsResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -696,10 +544,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.getConstraints =
 /**
  * @param {!proto.web.communitygames.GetConstraintsRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.GetConstraintsResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.getConstraints =
     function(request, metadata) {
@@ -734,30 +582,11 @@ const methodDescriptor_CommunityGames_sharePlayground = new grpc.web.MethodDescr
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.SharePlaygroundRequest,
- *   !proto.web.communitygames.SharePlaygroundResponse>}
- */
-const methodInfo_CommunityGames_sharePlayground = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.SharePlaygroundResponse,
-  /**
-   * @param {!proto.web.communitygames.SharePlaygroundRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.SharePlaygroundResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.SharePlaygroundRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.SharePlaygroundResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.SharePlaygroundResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.SharePlaygroundResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -776,10 +605,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.sharePlayground =
 /**
  * @param {!proto.web.communitygames.SharePlaygroundRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.SharePlaygroundResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.sharePlayground =
     function(request, metadata) {
@@ -814,30 +643,11 @@ const methodDescriptor_CommunityGames_getProgressionTypes = new grpc.web.MethodD
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.communitygames.GetProgressionTypesRequest,
- *   !proto.web.communitygames.GetProgressionTypesResponse>}
- */
-const methodInfo_CommunityGames_getProgressionTypes = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.communitygames.GetProgressionTypesResponse,
-  /**
-   * @param {!proto.web.communitygames.GetProgressionTypesRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.communitygames.GetProgressionTypesResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.communitygames.GetProgressionTypesRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.communitygames.GetProgressionTypesResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.communitygames.GetProgressionTypesResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.communitygames.GetProgressionTypesResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -856,10 +666,10 @@ proto.web.communitygames.CommunityGamesClient.prototype.getProgressionTypes =
 /**
  * @param {!proto.web.communitygames.GetProgressionTypesRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.communitygames.GetProgressionTypesResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.communitygames.CommunityGamesPromiseClient.prototype.getProgressionTypes =
     function(request, metadata) {

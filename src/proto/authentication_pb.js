@@ -1,16 +1,19 @@
-// source: proto/authentication.proto
+// source: authentication.proto
 /**
  * @fileoverview
  * @enhanceable
+ * @suppress {missingRequire} reports error on implicit type usages.
  * @suppress {messageConventions} JS Compiler reports an error if a variable or
  *     field starts with 'MSG_' and isn't a translatable message.
  * @public
  */
 // GENERATED CODE -- DO NOT EDIT!
+/* eslint-disable */
+// @ts-nocheck
 
 var jspb = require('google-protobuf');
 var goog = jspb;
-var global = Function('return this')();
+var global = (function() { return this || window || global || self || Function('return this')(); }).call(null);
 
 goog.exportSymbol('proto.web.authentication.AuthRequest', null, global);
 goog.exportSymbol('proto.web.authentication.AuthResponse', null, global);
@@ -1301,8 +1304,10 @@ proto.web.authentication.AuthResponse.deserializeBinaryFromReader = function(msg
       msg.setPlayer(value);
       break;
     case 4:
-      var value = /** @type {!Array<!proto.web.authentication.UserBits>} */ (reader.readPackedEnum());
-      msg.setUserbitsList(value);
+      var values = /** @type {!Array<!proto.web.authentication.UserBits>} */ (reader.isDelimited() ? reader.readPackedEnum() : [reader.readEnum()]);
+      for (var i = 0; i < values.length; i++) {
+        msg.addUserbits(values[i]);
+      }
       break;
     case 5:
       var value = new proto.web.authentication.TimeTravel;

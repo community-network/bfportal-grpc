@@ -1,32 +1,31 @@
 import * as grpcWeb from 'grpc-web';
 
-import {
-  ReportPlaygroundRequest,
-  ReportPlaygroundResponse} from './reporting_pb';
+import * as reporting_pb from './reporting_pb';
+
 
 export class WebReportingClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   reportPlayground(
-    request: ReportPlaygroundRequest,
+    request: reporting_pb.ReportPlaygroundRequest,
     metadata: grpcWeb.Metadata | undefined,
-    callback: (err: grpcWeb.Error,
-               response: ReportPlaygroundResponse) => void
-  ): grpcWeb.ClientReadableStream<ReportPlaygroundResponse>;
+    callback: (err: grpcWeb.RpcError,
+               response: reporting_pb.ReportPlaygroundResponse) => void
+  ): grpcWeb.ClientReadableStream<reporting_pb.ReportPlaygroundResponse>;
 
 }
 
 export class WebReportingPromiseClient {
   constructor (hostname: string,
                credentials?: null | { [index: string]: string; },
-               options?: null | { [index: string]: string; });
+               options?: null | { [index: string]: any; });
 
   reportPlayground(
-    request: ReportPlaygroundRequest,
+    request: reporting_pb.ReportPlaygroundRequest,
     metadata?: grpcWeb.Metadata
-  ): Promise<ReportPlaygroundResponse>;
+  ): Promise<reporting_pb.ReportPlaygroundResponse>;
 
 }
 

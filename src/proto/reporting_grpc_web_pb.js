@@ -22,7 +22,7 @@ proto.web.reporting = require('./reporting_pb.js');
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -30,7 +30,7 @@ proto.web.reporting = require('./reporting_pb.js');
 proto.web.reporting.WebReportingClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -48,7 +48,7 @@ proto.web.reporting.WebReportingClient =
 /**
  * @param {string} hostname
  * @param {?Object} credentials
- * @param {?Object} options
+ * @param {?grpc.web.ClientOptions} options
  * @constructor
  * @struct
  * @final
@@ -56,7 +56,7 @@ proto.web.reporting.WebReportingClient =
 proto.web.reporting.WebReportingPromiseClient =
     function(hostname, credentials, options) {
   if (!options) options = {};
-  options['format'] = 'binary';
+  options.format = 'binary';
 
   /**
    * @private @const {!grpc.web.GrpcWebClientBase} The client
@@ -94,30 +94,11 @@ const methodDescriptor_WebReporting_reportPlayground = new grpc.web.MethodDescri
 
 
 /**
- * @const
- * @type {!grpc.web.AbstractClientBase.MethodInfo<
- *   !proto.web.reporting.ReportPlaygroundRequest,
- *   !proto.web.reporting.ReportPlaygroundResponse>}
- */
-const methodInfo_WebReporting_reportPlayground = new grpc.web.AbstractClientBase.MethodInfo(
-  proto.web.reporting.ReportPlaygroundResponse,
-  /**
-   * @param {!proto.web.reporting.ReportPlaygroundRequest} request
-   * @return {!Uint8Array}
-   */
-  function(request) {
-    return request.serializeBinary();
-  },
-  proto.web.reporting.ReportPlaygroundResponse.deserializeBinary
-);
-
-
-/**
  * @param {!proto.web.reporting.ReportPlaygroundRequest} request The
  *     request proto
  * @param {?Object<string, string>} metadata User defined
  *     call metadata
- * @param {function(?grpc.web.Error, ?proto.web.reporting.ReportPlaygroundResponse)}
+ * @param {function(?grpc.web.RpcError, ?proto.web.reporting.ReportPlaygroundResponse)}
  *     callback The callback function(error, response)
  * @return {!grpc.web.ClientReadableStream<!proto.web.reporting.ReportPlaygroundResponse>|undefined}
  *     The XHR Node Readable Stream
@@ -136,10 +117,10 @@ proto.web.reporting.WebReportingClient.prototype.reportPlayground =
 /**
  * @param {!proto.web.reporting.ReportPlaygroundRequest} request The
  *     request proto
- * @param {?Object<string, string>} metadata User defined
+ * @param {?Object<string, string>=} metadata User defined
  *     call metadata
  * @return {!Promise<!proto.web.reporting.ReportPlaygroundResponse>}
- *     A native promise that resolves to the response
+ *     Promise that resolves to the response
  */
 proto.web.reporting.WebReportingPromiseClient.prototype.reportPlayground =
     function(request, metadata) {
