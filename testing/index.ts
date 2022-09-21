@@ -1,5 +1,4 @@
-import { CommunityGamesClient } from '../src/proto/communitygames_grpc_web_pb';
-import * as communitygames from '../src/proto/communitygames_pb';
+import { CommunityGamesClient, communitygames } from 'BfPortal';
 import * as grpcWeb from 'grpc-web';
 import { load } from "protobufjs";
 global.XMLHttpRequest = require('xhr2');
@@ -8,7 +7,7 @@ var fs = require('fs');
 const communityGames = new CommunityGamesClient('https://kingston-prod-wgw-envoy.ops.dice.se', null);
 var metadata = {
   "x-dice-tenancy": "prod_default-prod_default-kingston-common",
-  "x-gateway-session-id": "web-38eb969a-cff6-4c98-befe-b9e610f3df0e",
+  "x-gateway-session-id": "web-8193e0cd-1f66-4b21-9a09-dc532ee52d88",
   "x-grpc-web": "1",
   "x-user-agent": "grpc-web-javascript/0.1"
 }

@@ -3,21 +3,38 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "types": "index.d.ts",
+  "exports": {
+    ".": {
+      "default": {
+        "require": "./index.js",
+        "default": "./index.js"
+      }
+    }
+  },
   "scripts": {
     "test": "ts-node testing/index.ts"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/community-network/bfportal-grpc.git"
+  },
+  "author": "Community network",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/community-network/bfportal-grpc/issues"
+  },
+  "homepage": "https://gametools.network/",
   "dependencies": {
     "google-protobuf": "^3.21.0",
     "grpc-web": "1.2.1"
   },
   "devDependencies": {
     "@types/node": "^18.7.18",
+    "protobufjs": "^7.1.1",
     "ts-node": "^10.9.1",
-    "xhr2": "^0.2.1",
-    "protobufjs": "^7.1.1"
+    "xhr2": "^0.2.1"
   },
   "files": [
     "index.js",
