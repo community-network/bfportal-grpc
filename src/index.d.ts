@@ -1,4 +1,3 @@
-export as namespace BfPortal;
 export { ClientAuthenticationClient } from './proto/authentication_grpc_web_pb';
 export * as authentication from './proto/authentication_pb';
 export { CommunityGamesClient } from './proto/communitygames_grpc_web_pb';

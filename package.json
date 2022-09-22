@@ -6,7 +6,6 @@
   "types": "./src/index.d.ts",
   "typings": "./src/index.d.ts",
   "exports": "./src/index.js",
-  "type": "module",
   "scripts": {
     "test": "ts-node testing/index.ts"
   },

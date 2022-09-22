@@ -7,7 +7,7 @@ const ClientLocalizationClient = require("./proto/localization_grpc_web_pb");;
 const reporting = require("./proto/reporting_pb");
 const WebReportingClient = require("./proto/reporting_grpc_web_pb");
 
-var BfPortal = module.exports = {
+module.exports = {
     ClientAuthenticationClient,
     CommunityGamesClient,
     ClientLocalizationClient,
@@ -17,4 +17,3 @@ BfPortal.authentication = authentication;
 BfPortal.communitygames = communitygames;
 BfPortal.localization = localization;
 BfPortal.reporting = reporting;
-export default BfPortal;
