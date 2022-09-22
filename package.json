@@ -8,10 +8,10 @@
   "types": "dist/types/index.d.js",
   "scripts": {
     "build": "npm run build:cjs && npm run build:esm && npm run build:umd && npm run build:types",
-    "build:cjs": "node tools/cleanup cjs && tsc -p config/tsconfig.cjs.json",
-    "build:esm": "node tools/cleanup esm && tsc -p config/tsconfig.esm.json",
-    "build:umd": "node tools/cleanup umd && webpack --config config/webpack.config.js",
-    "build:types": "node tools/cleanup types && tsc -p config/tsconfig.types.json",
+    "build:cjs": "node tools/cleanup cjs && tsc -p config/tsconfig.cjs.json && copyfiles -u 1 src/**/*.js dist/cjs/",
+    "build:esm": "node tools/cleanup esm && tsc -p config/tsconfig.esm.json && copyfiles -u 1 src/**/*.js dist/esm/",
+    "build:umd": "node tools/cleanup umd && webpack --config config/webpack.config.js && copyfiles -u 1 src/**/*.js dist/umd/",
+    "build:types": "node tools/cleanup types && tsc -p config/tsconfig.types.json && copyfiles -u 1 src/**/*.js dist/types/",
     "test": "jest --no-cache --runInBand"
   },
   "publishConfig": {
@@ -38,6 +38,7 @@
     "@types/jest": "^27.0.1",
     "@typescript-eslint/eslint-plugin": "^4.31.1",
     "@typescript-eslint/parser": "^4.31.1",
+    "copyfiles": "^2.4.1",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
