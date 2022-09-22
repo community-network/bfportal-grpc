@@ -1,43 +1,20 @@
-import { CommunityGamesClient, communitygames } from 'BfPortal';
-import * as grpcWeb from 'grpc-web';
-import { load } from "protobufjs";
-// global.XMLHttpRequest = require('xhr2');
-var fs = require("fs");
+import { CommunityGamesClient, communitygames } from '../src/index';
+global.XMLHttpRequest = require('xhr2');
 
 const communityGames = new CommunityGamesClient('https://kingston-prod-wgw-envoy.ops.dice.se', null);
 var metadata = {
   "x-dice-tenancy": "prod_default-prod_default-kingston-common",
-  "x-gateway-session-id": "web-8193e0cd-1f66-4b21-9a09-dc532ee52d88",
+  "x-gateway-session-id": "web-ebe41041-2e14-420a-a17d-52b54860b1f0",
   "x-grpc-web": "1",
   "x-user-agent": "grpc-web-javascript/0.1"
 }
 
-
-const request = new communitygames.GetPlaygroundRequest();
-request.setPlaygroundid("bbe433c0-13fa-11ed-bc32-24a8c2c0764e");
-const call = communityGames.getPlayground(request, metadata,
-  (_err: grpcWeb.Error, response: communitygames.PlaygroundInfoResponse) => {
-    console.log("err:", _err)
-    var test = response.getPlayground()?.getOriginalplayground()?.getModrules()?.getCompatiblerules()?.getRules();
-    if (test instanceof Uint8Array) {
-      console.log(new TextDecoder().decode(test)) // blocky data
-    }
-
-    load("proto/communitygames.proto", function(err, root) {
-      if (err)
-        throw err;
-      if (root == undefined) 
-        return
-
-      const AwesomeMessage = root.lookupType("web.communitygames.PlaygroundInfoResponse");
-      // json variant
-      let decoded = AwesomeMessage.decode(response.serializeBinary());
-      fs.writeFile("test.json", JSON.stringify(decoded, null, 4), function(err: any) {
-        if (err) {
-            console.log(err);
-        }
-      });
-    })
+test('getPlayground', async () => {
+  const request = new communitygames.GetPlaygroundRequest();
+  request.setPlaygroundid("bbe433c0-13fa-11ed-bc32-24a8c2c0764e");
+  const response = await communityGames.getPlayground(request, metadata);
+  var test = response.getPlayground()?.getOriginalplayground()?.getModrules()?.getCompatiblerules()?.getRules();
+  console.log(test);
 });
 
 // const request = new communitygames.ListPlaygroundsByOwnerRequest();
