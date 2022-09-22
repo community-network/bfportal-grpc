@@ -5,3 +5,6 @@ current build method from proto to javascript:
 https://github.com/romnn/proto-compile
 
 https://github.com/tomchen/example-typescript-package
+
+npm version patch
+git push —-tags origin master
