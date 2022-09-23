@@ -8,6 +8,6 @@ and build with:
 python package used: https://github.com/romnn/proto-compile
 
 ### Pushing your changes
-package versions can be made with `npm run build` and `npm version patch` `git push —-tags origin master` to release
+package versions can be made with `npm run build` and `npm version patch` `git push --tags origin main` to release
 
 example library used: https://github.com/tomchen/example-typescript-package
