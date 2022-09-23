@@ -1,4 +1,4 @@
-### current build method from proto to javascript via python:
+### current build method from proto to javascript via python
 needs proto-compile, which can be installed with:
 `pip3 install proto-compile`
 
@@ -7,6 +7,7 @@ and build with:
 
 https://github.com/romnn/proto-compile
 
+### Pushing your changes
 package versions can be made with
 `npm build`
 
