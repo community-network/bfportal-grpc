@@ -1422,12 +1422,245 @@ export namespace AvailableIntValue {
   }
 }
 
+export class SparseFloatValues extends jspb.Message {
+  getValuesList(): Array<number>;
+  setValuesList(value: Array<number>): SparseFloatValues;
+  clearValuesList(): SparseFloatValues;
+  addValues(value: number, index?: number): SparseFloatValues;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): SparseFloatValues.AsObject;
+  static toObject(includeInstance: boolean, msg: SparseFloatValues): SparseFloatValues.AsObject;
+  static serializeBinaryToWriter(message: SparseFloatValues, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): SparseFloatValues;
+  static deserializeBinaryFromReader(message: SparseFloatValues, reader: jspb.BinaryReader): SparseFloatValues;
+}
+
+export namespace SparseFloatValues {
+  export type AsObject = {
+    valuesList: Array<number>,
+  }
+}
+
+export class FloatRange extends jspb.Message {
+  getMinvalue(): number;
+  setMinvalue(value: number): FloatRange;
+
+  getMaxvalue(): number;
+  setMaxvalue(value: number): FloatRange;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): FloatRange.AsObject;
+  static toObject(includeInstance: boolean, msg: FloatRange): FloatRange.AsObject;
+  static serializeBinaryToWriter(message: FloatRange, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): FloatRange;
+  static deserializeBinaryFromReader(message: FloatRange, reader: jspb.BinaryReader): FloatRange;
+}
+
+export namespace FloatRange {
+  export type AsObject = {
+    minvalue: number,
+    maxvalue: number,
+  }
+}
+
+export class AvailableFloatValues extends jspb.Message {
+  getRange(): FloatRange | undefined;
+  setRange(value?: FloatRange): AvailableFloatValues;
+  hasRange(): boolean;
+  clearRange(): AvailableFloatValues;
+
+  getSparsevalues(): SparseFloatValues | undefined;
+  setSparsevalues(value?: SparseFloatValues): AvailableFloatValues;
+  hasSparsevalues(): boolean;
+  clearSparsevalues(): AvailableFloatValues;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AvailableFloatValues.AsObject;
+  static toObject(includeInstance: boolean, msg: AvailableFloatValues): AvailableFloatValues.AsObject;
+  static serializeBinaryToWriter(message: AvailableFloatValues, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AvailableFloatValues;
+  static deserializeBinaryFromReader(message: AvailableFloatValues, reader: jspb.BinaryReader): AvailableFloatValues;
+}
+
+export namespace AvailableFloatValues {
+  export type AsObject = {
+    range?: FloatRange.AsObject,
+    sparsevalues?: SparseFloatValues.AsObject,
+  }
+}
+
+export class AvailableMutatorFloatValues extends jspb.Message {
+  getMutator(): MutatorFloat | undefined;
+  setMutator(value?: MutatorFloat): AvailableMutatorFloatValues;
+  hasMutator(): boolean;
+  clearMutator(): AvailableMutatorFloatValues;
+
+  getAvailablevalues(): AvailableFloatValues | undefined;
+  setAvailablevalues(value?: AvailableFloatValues): AvailableMutatorFloatValues;
+  hasAvailablevalues(): boolean;
+  clearAvailablevalues(): AvailableMutatorFloatValues;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AvailableMutatorFloatValues.AsObject;
+  static toObject(includeInstance: boolean, msg: AvailableMutatorFloatValues): AvailableMutatorFloatValues.AsObject;
+  static serializeBinaryToWriter(message: AvailableMutatorFloatValues, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AvailableMutatorFloatValues;
+  static deserializeBinaryFromReader(message: AvailableMutatorFloatValues, reader: jspb.BinaryReader): AvailableMutatorFloatValues;
+}
+
+export namespace AvailableMutatorFloatValues {
+  export type AsObject = {
+    mutator?: MutatorFloat.AsObject,
+    availablevalues?: AvailableFloatValues.AsObject,
+  }
+}
+
+export class AvailableMutatorIntValues extends jspb.Message {
+  getMutator(): MutatorInt | undefined;
+  setMutator(value?: MutatorInt): AvailableMutatorIntValues;
+  hasMutator(): boolean;
+  clearMutator(): AvailableMutatorIntValues;
+
+  getAvailablevalues(): AvailableIntValues | undefined;
+  setAvailablevalues(value?: AvailableIntValues): AvailableMutatorIntValues;
+  hasAvailablevalues(): boolean;
+  clearAvailablevalues(): AvailableMutatorIntValues;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AvailableMutatorIntValues.AsObject;
+  static toObject(includeInstance: boolean, msg: AvailableMutatorIntValues): AvailableMutatorIntValues.AsObject;
+  static serializeBinaryToWriter(message: AvailableMutatorIntValues, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AvailableMutatorIntValues;
+  static deserializeBinaryFromReader(message: AvailableMutatorIntValues, reader: jspb.BinaryReader): AvailableMutatorIntValues;
+}
+
+export namespace AvailableMutatorIntValues {
+  export type AsObject = {
+    mutator?: MutatorInt.AsObject,
+    availablevalues?: AvailableIntValues.AsObject,
+  }
+}
+
+export class AvailableMutatorSparseIntValues extends jspb.Message {
+  getMutator(): MutatorSparseInt | undefined;
+  setMutator(value?: MutatorSparseInt): AvailableMutatorSparseIntValues;
+  hasMutator(): boolean;
+  clearMutator(): AvailableMutatorSparseIntValues;
+
+  getAvailablevalues(): AvailableIntValues | undefined;
+  setAvailablevalues(value?: AvailableIntValues): AvailableMutatorSparseIntValues;
+  hasAvailablevalues(): boolean;
+  clearAvailablevalues(): AvailableMutatorSparseIntValues;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AvailableMutatorSparseIntValues.AsObject;
+  static toObject(includeInstance: boolean, msg: AvailableMutatorSparseIntValues): AvailableMutatorSparseIntValues.AsObject;
+  static serializeBinaryToWriter(message: AvailableMutatorSparseIntValues, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AvailableMutatorSparseIntValues;
+  static deserializeBinaryFromReader(message: AvailableMutatorSparseIntValues, reader: jspb.BinaryReader): AvailableMutatorSparseIntValues;
+}
+
+export namespace AvailableMutatorSparseIntValues {
+  export type AsObject = {
+    mutator?: MutatorSparseInt.AsObject,
+    availablevalues?: AvailableIntValues.AsObject,
+  }
+}
+
+export class AvailableMutatorSparseFloatValues extends jspb.Message {
+  getMutator(): MutatorSparseFloat | undefined;
+  setMutator(value?: MutatorSparseFloat): AvailableMutatorSparseFloatValues;
+  hasMutator(): boolean;
+  clearMutator(): AvailableMutatorSparseFloatValues;
+
+  getAvailablevalues(): AvailableFloatValues | undefined;
+  setAvailablevalues(value?: AvailableFloatValues): AvailableMutatorSparseFloatValues;
+  hasAvailablevalues(): boolean;
+  clearAvailablevalues(): AvailableMutatorSparseFloatValues;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AvailableMutatorSparseFloatValues.AsObject;
+  static toObject(includeInstance: boolean, msg: AvailableMutatorSparseFloatValues): AvailableMutatorSparseFloatValues.AsObject;
+  static serializeBinaryToWriter(message: AvailableMutatorSparseFloatValues, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AvailableMutatorSparseFloatValues;
+  static deserializeBinaryFromReader(message: AvailableMutatorSparseFloatValues, reader: jspb.BinaryReader): AvailableMutatorSparseFloatValues;
+}
+
+export namespace AvailableMutatorSparseFloatValues {
+  export type AsObject = {
+    mutator?: MutatorSparseFloat.AsObject,
+    availablevalues?: AvailableFloatValues.AsObject,
+  }
+}
+
+export class AvailableMutatorKind extends jspb.Message {
+  getMutatorboolean(): MutatorBoolean | undefined;
+  setMutatorboolean(value?: MutatorBoolean): AvailableMutatorKind;
+  hasMutatorboolean(): boolean;
+  clearMutatorboolean(): AvailableMutatorKind;
+
+  getMutatorstring(): MutatorString | undefined;
+  setMutatorstring(value?: MutatorString): AvailableMutatorKind;
+  hasMutatorstring(): boolean;
+  clearMutatorstring(): AvailableMutatorKind;
+
+  getMutatorfloatvalues(): AvailableMutatorFloatValues | undefined;
+  setMutatorfloatvalues(value?: AvailableMutatorFloatValues): AvailableMutatorKind;
+  hasMutatorfloatvalues(): boolean;
+  clearMutatorfloatvalues(): AvailableMutatorKind;
+
+  getMutatorintvalues(): AvailableMutatorIntValues | undefined;
+  setMutatorintvalues(value?: AvailableMutatorIntValues): AvailableMutatorKind;
+  hasMutatorintvalues(): boolean;
+  clearMutatorintvalues(): AvailableMutatorKind;
+
+  getMutatorsparseboolean(): MutatorSparseBoolean | undefined;
+  setMutatorsparseboolean(value?: MutatorSparseBoolean): AvailableMutatorKind;
+  hasMutatorsparseboolean(): boolean;
+  clearMutatorsparseboolean(): AvailableMutatorKind;
+
+  getMutatorsparseintvalues(): AvailableMutatorSparseIntValues | undefined;
+  setMutatorsparseintvalues(value?: AvailableMutatorSparseIntValues): AvailableMutatorKind;
+  hasMutatorsparseintvalues(): boolean;
+  clearMutatorsparseintvalues(): AvailableMutatorKind;
+
+  getMutatorsparsefloatvalues(): AvailableMutatorSparseFloatValues | undefined;
+  setMutatorsparsefloatvalues(value?: AvailableMutatorSparseFloatValues): AvailableMutatorKind;
+  hasMutatorsparsefloatvalues(): boolean;
+  clearMutatorsparsefloatvalues(): AvailableMutatorKind;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): AvailableMutatorKind.AsObject;
+  static toObject(includeInstance: boolean, msg: AvailableMutatorKind): AvailableMutatorKind.AsObject;
+  static serializeBinaryToWriter(message: AvailableMutatorKind, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): AvailableMutatorKind;
+  static deserializeBinaryFromReader(message: AvailableMutatorKind, reader: jspb.BinaryReader): AvailableMutatorKind;
+}
+
+export namespace AvailableMutatorKind {
+  export type AsObject = {
+    mutatorboolean?: MutatorBoolean.AsObject,
+    mutatorstring?: MutatorString.AsObject,
+    mutatorfloatvalues?: AvailableMutatorFloatValues.AsObject,
+    mutatorintvalues?: AvailableMutatorIntValues.AsObject,
+    mutatorsparseboolean?: MutatorSparseBoolean.AsObject,
+    mutatorsparseintvalues?: AvailableMutatorSparseIntValues.AsObject,
+    mutatorsparsefloatvalues?: AvailableMutatorSparseFloatValues.AsObject,
+  }
+}
+
 export class AvailableMutator extends jspb.Message {
   getName(): string;
   setName(value: string): AvailableMutator;
 
   getCategory(): string;
   setCategory(value: string): AvailableMutator;
+
+  getKind(): AvailableMutatorKind | undefined;
+  setKind(value?: AvailableMutatorKind): AvailableMutator;
+  hasKind(): boolean;
+  clearKind(): AvailableMutator;
 
   getMetadata(): Metadata | undefined;
   setMetadata(value?: Metadata): AvailableMutator;
@@ -1449,6 +1682,7 @@ export namespace AvailableMutator {
   export type AsObject = {
     name: string,
     category: string,
+    kind?: AvailableMutatorKind.AsObject,
     metadata?: Metadata.AsObject,
     id: string,
   }
