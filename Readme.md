@@ -5,14 +5,9 @@ needs proto-compile, which can be installed with:
 and build with:
 `proto-compile --clear-output-dirs --verbosity=1 ./proto ./src/proto grpc-web --grpc_web_out_options="import_style=typescript,mode=grpcweb"`
 
-https://github.com/romnn/proto-compile
+python package used: https://github.com/romnn/proto-compile
 
 ### Pushing your changes
-package versions can be made with
-`npm build`
-
-and
-`npm version patch`
-`git push —-tags origin master` to release
+package versions can be made with `npm build` and `npm version patch` `git push —-tags origin master` to release
 
 example library used: https://github.com/tomchen/example-typescript-package
