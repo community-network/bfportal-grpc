@@ -78,6 +78,26 @@ const call = communityGames.getPlayground(request, metadata,
 });
 ```
 
+## python
+for python you can use the 'sonora' package to do grpc-web
+```py
+import sonora.aio
+import sys
+from proto import communitygames_pb2, communitygames_pb2_grpc
+
+async def main():
+    async with sonora.aio.insecure_web_channel(
+        f"https://kingston-prod-wgw-envoy.ops.dice.se"
+    ) as channel:
+        stub = communitygames_pb2_grpc.CommunityGamesStub(channel)
+        response: communitygames_pb2.PlaygroundInfoResponse = await stub.getPlayground(communitygames_pb2.GetPlaygroundRequest(playgroundId="10992a10-461a-11ec-8de0-d9f491f92236"), metadata=(
+            ('x-dice-tenancy', 'prod_default-prod_default-kingston-common'),
+            ('x-gateway-session-id', 'web-c6b312c9-2520-4fde-958d-60ae71840a65'),
+            ('x-grpc-web', '1'),
+            ('x-user-agent', 'grpc-web-javascript/0.1')
+        ))
+```
+
 ### current build method from proto to javascript via python
 needs proto-compile, which can be installed with:
 `pip3 install proto-compile`
@@ -85,9 +105,16 @@ needs proto-compile, which can be installed with:
 and build with:
 `proto-compile --clear-output-dirs --verbosity=1 ./proto ./src/proto grpc-web --grpc_web_out_options="import_style=typescript,mode=grpcweb"`
 
+building for python requires grpcio-tools, which can be installed with:
+`pip3 install grpcio-tools`
+
+and build with:
+`python3 -m grpc_tools.protoc -I. --python_out=./grpc-python --grpc_python_out=./grpc-python ./proto/communitygames.proto ./proto/localization.proto ./proto/authentication.proto ./proto/reporting.proto`
+
 python package used: https://github.com/romnn/proto-compile
 
 ### Pushing your changes
-package versions can be made with `npm run build` and `npm version patch` `git push --tags origin main` to release
+package versions can be made with `npm run build` and `npm version patch` `git push --tags origin main` to release.
+
 
 example library used: https://github.com/tomchen/example-typescript-package
