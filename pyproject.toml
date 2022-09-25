@@ -1,0 +1,51 @@
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry]
+name = "bfportal_grpc"
+version = "0.1.3"
+description = " bf2042 portal web grpc as python package "
+readme = "Readme.md"
+authors = ["iiTzArcur <arcur@gametools.network>"]
+# license = { file = "LICENSE" }
+classifiers = [
+    # "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["bfportal", "grpc", "Battlefield portal"]
+repository = "https://github.com/community-network/bfportal-grpc"
+packages = [
+    { include = "bfportal_grpc" },
+]
+
+[tool.poetry.dependencies]
+aiohttp = "^3.8.1"
+protobuf = "4.21.6"
+grpcio = "1.48.1"
+python = "^3.10"
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/community-network/bfportal-grpc/issues"
+
+[tool.poetry.dev-dependencies]
+pytest = "*"
+sonora = "*"
+grpcio-tools = "*"
+proto-compile ="*"
+black = "*"
+isort = "*"
+
+[tool.isort]
+profile                   = "black"
+import_heading_stdlib     = "Standard library imports"
+import_heading_thirdparty = "Third party imports"
+import_heading_firstparty = "Reader imports"
+
+[tool.mypy]
+strict = true
+
+    [[tool.mypy.overrides]]
+    module                 = "feedparser"
+    ignore_missing_imports = true

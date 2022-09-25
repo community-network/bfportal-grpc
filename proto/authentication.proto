@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package web.authentication;
 
-service ClientAuthentication {
+service Authentication {
     rpc viaAuthCode (AuthRequest) returns (AuthResponse) {}
     rpc logout (Empty) returns (Empty) {}
 }

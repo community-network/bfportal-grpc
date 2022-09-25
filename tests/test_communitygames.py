@@ -1,6 +1,6 @@
 import asyncio
 import sonora.aio
-from bfportal_grpc_python.proto import communitygames_pb2, communitygames_pb2_grpc
+from bfportal_grpc import communitygames_pb2, communitygames_pb2_grpc
 
 async def test__playground():
     async with sonora.aio.insecure_web_channel(

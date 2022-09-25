@@ -12,7 +12,8 @@
     "build:esm": "node tools/cleanup esm && tsc -p config/tsconfig.esm.json && copyfiles -u 1 src/**/*.js dist/esm/",
     "build:umd": "node tools/cleanup umd && webpack --config config/webpack.config.js && copyfiles -u 1 src/**/*.js dist/umd/",
     "build:types": "node tools/cleanup types && tsc -p config/tsconfig.types.json && copyfiles -u 1 src/**/*.js dist/types/",
-    "build:python": "python3 -m grpc_tools.protoc -I. --python_out=./grpc-python --grpc_python_out=./grpc-python ./proto/communitygames.proto ./proto/localization.proto ./proto/authentication.proto ./proto/reporting.proto",
+    "build:python": "cd proto && python3 -m grpc_tools.protoc -I. --python_out=../bfportal_grpc/proto --grpc_python_out=../bfportal_grpc/proto communitygames.proto localization.proto authentication.proto reporting.proto && cd ../",
+    "python:setimports": "cd bfportal_grpc/proto && for i in *_grpc.py; do sed -i '/ as / s/import /from . import /;' $i; done && cd ../..",
     "test": "jest --no-cache --runInBand"
   },
   "publishConfig": {
