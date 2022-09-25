@@ -1,9 +1,10 @@
 # Battlefield Portal web-grpc
 
-This npm package can be used to directly call the https://portal.battlefield.com/ api.
+This npm and python package can be used to directly call the https://portal.battlefield.com/ api.
 we're making this public since you can read the javascript of the website and figure this out yourself easily anyway, but we want to make sure only 1 github repo has to be kept in sync with the api and the rest that uses it just has to update a package and a few code changes to still have it work.
 
 https://www.npmjs.com/package/bfportal-grpc
+https://pypi.org/project/bfportal-grpc/
 
 ## example
 
