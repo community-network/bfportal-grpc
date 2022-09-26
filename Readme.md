@@ -97,7 +97,6 @@ async def main():
         stub = authentication_pb2_grpc.AuthenticationStub(channel)
         auth_response: authentication_pb2.AuthResponse = await stub.viaAuthCode(authentication_pb2.AuthRequest(platform=1, authCode=token, redirectUri='https://portal.battlefield.com/'), metadata=(
             ('x-dice-tenancy', 'prod_default-prod_default-kingston-common'),
-            ('x-gateway-session-id', 'web-c6b312c9-2520-4fde-958d-60ae71840a65'),
             ('x-grpc-web', '1'),
             ('x-user-agent', 'grpc-web-javascript/0.1')
         ))
