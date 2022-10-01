@@ -32,6 +32,8 @@ const playgroundName = response.getPlayground()?.getOriginalplayground()?.getNam
 
 the proto files are accessable directly via "node_modules/bfportal-grpc/proto/communitygames.proto" to for example decode to json:
 ```js
+import { load } from "protobufjs";
+
 // use reponse from previous example
 const root = await load("node_modules/bfportal-grpc/proto/communitygames.proto");
 const AwesomeMessage = root.lookupType("web.communitygames.PlaygroundInfoResponse");
