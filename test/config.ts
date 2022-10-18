@@ -1,2 +1,2 @@
-export const sessionId = 'web-9c47726b-c843-4bdd-b003-e1faa18972e3'
-export const testPlayground = '42924ad0-7d1d-11ec-bd24-e2cf76b022fe'
+export const sessionId = 'web-41e81c21-46c8-4168-8251-c2df3359ea1b'
+export const testPlayground = '83515620-3676-11ed-a187-5967b3f31df6'
