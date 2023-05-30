@@ -26,7 +26,6 @@ test('getPlayground', async () => {
 test('listPlaygroundsByOwner', async () => {
     const request = new communitygames.ListPlaygroundsByOwnerRequest();
     request.setBlueprinttype("vanilla");
-    request.setProtocolversion("84668704");
     const response = await communityGames.listPlaygroundsByOwner(request, metadata);
     const playgroundName = response.getPlaygroundresponsesList()?.[0].getOriginalplayground()?.getName();
     expect(typeof playgroundName).toBe("string");

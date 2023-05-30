@@ -11697,8 +11697,7 @@ proto.web.communitygames.ListPlaygroundsByOwnerRequest.prototype.toObject = func
  */
 proto.web.communitygames.ListPlaygroundsByOwnerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    blueprinttype: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    protocolversion: jspb.Message.getFieldWithDefault(msg, 2, "")
+    blueprinttype: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -11739,10 +11738,6 @@ proto.web.communitygames.ListPlaygroundsByOwnerRequest.deserializeBinaryFromRead
       var value = /** @type {string} */ (reader.readString());
       msg.setBlueprinttype(value);
       break;
-    case 2:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProtocolversion(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -11779,13 +11774,6 @@ proto.web.communitygames.ListPlaygroundsByOwnerRequest.serializeBinaryToWriter =
       f
     );
   }
-  f = message.getProtocolversion();
-  if (f.length > 0) {
-    writer.writeString(
-      2,
-      f
-    );
-  }
 };
 
 
@@ -11804,24 +11792,6 @@ proto.web.communitygames.ListPlaygroundsByOwnerRequest.prototype.getBlueprinttyp
  */
 proto.web.communitygames.ListPlaygroundsByOwnerRequest.prototype.setBlueprinttype = function(value) {
   return jspb.Message.setProto3StringField(this, 1, value);
-};
-
-
-/**
- * optional string protocolVersion = 2;
- * @return {string}
- */
-proto.web.communitygames.ListPlaygroundsByOwnerRequest.prototype.getProtocolversion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.web.communitygames.ListPlaygroundsByOwnerRequest} returns this
- */
-proto.web.communitygames.ListPlaygroundsByOwnerRequest.prototype.setProtocolversion = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 
@@ -18011,7 +17981,7 @@ proto.web.communitygames.GetScheduledBlueprintsRequest.prototype.toObject = func
  */
 proto.web.communitygames.GetScheduledBlueprintsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    protocolversion: jspb.Message.getFieldWithDefault(msg, 1, "")
+
   };
 
   if (includeInstance) {
@@ -18048,10 +18018,6 @@ proto.web.communitygames.GetScheduledBlueprintsRequest.deserializeBinaryFromRead
     }
     var field = reader.getFieldNumber();
     switch (field) {
-    case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setProtocolversion(value);
-      break;
     default:
       reader.skipField();
       break;
@@ -18081,31 +18047,6 @@ proto.web.communitygames.GetScheduledBlueprintsRequest.prototype.serializeBinary
  */
 proto.web.communitygames.GetScheduledBlueprintsRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getProtocolversion();
-  if (f.length > 0) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
-};
-
-
-/**
- * optional string protocolVersion = 1;
- * @return {string}
- */
-proto.web.communitygames.GetScheduledBlueprintsRequest.prototype.getProtocolversion = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.web.communitygames.GetScheduledBlueprintsRequest} returns this
- */
-proto.web.communitygames.GetScheduledBlueprintsRequest.prototype.setProtocolversion = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

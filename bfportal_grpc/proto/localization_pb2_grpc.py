@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from . import localization_pb2 as localization__pb2
+from proto import localization_pb2 as proto_dot_localization__pb2
 
 
 class ClientLocalizationStub(object):
@@ -16,8 +16,8 @@ class ClientLocalizationStub(object):
         """
         self.getTranslations = channel.unary_unary(
                 '/web.localization.ClientLocalization/getTranslations',
-                request_serializer=localization__pb2.GetTranslationsRequest.SerializeToString,
-                response_deserializer=localization__pb2.GetTranslationsResponse.FromString,
+                request_serializer=proto_dot_localization__pb2.GetTranslationsRequest.SerializeToString,
+                response_deserializer=proto_dot_localization__pb2.GetTranslationsResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_ClientLocalizationServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'getTranslations': grpc.unary_unary_rpc_method_handler(
                     servicer.getTranslations,
-                    request_deserializer=localization__pb2.GetTranslationsRequest.FromString,
-                    response_serializer=localization__pb2.GetTranslationsResponse.SerializeToString,
+                    request_deserializer=proto_dot_localization__pb2.GetTranslationsRequest.FromString,
+                    response_serializer=proto_dot_localization__pb2.GetTranslationsResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class ClientLocalization(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.localization.ClientLocalization/getTranslations',
-            localization__pb2.GetTranslationsRequest.SerializeToString,
-            localization__pb2.GetTranslationsResponse.FromString,
+            proto_dot_localization__pb2.GetTranslationsRequest.SerializeToString,
+            proto_dot_localization__pb2.GetTranslationsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

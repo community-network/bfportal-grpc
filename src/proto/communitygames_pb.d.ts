@@ -1266,9 +1266,6 @@ export class ListPlaygroundsByOwnerRequest extends jspb.Message {
   getBlueprinttype(): string;
   setBlueprinttype(value: string): ListPlaygroundsByOwnerRequest;
 
-  getProtocolversion(): string;
-  setProtocolversion(value: string): ListPlaygroundsByOwnerRequest;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListPlaygroundsByOwnerRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListPlaygroundsByOwnerRequest): ListPlaygroundsByOwnerRequest.AsObject;
@@ -1280,7 +1277,6 @@ export class ListPlaygroundsByOwnerRequest extends jspb.Message {
 export namespace ListPlaygroundsByOwnerRequest {
   export type AsObject = {
     blueprinttype: string,
-    protocolversion: string,
   }
 }
 
@@ -2075,9 +2071,6 @@ export namespace GetProgressionTypesResponse {
 }
 
 export class GetScheduledBlueprintsRequest extends jspb.Message {
-  getProtocolversion(): string;
-  setProtocolversion(value: string): GetScheduledBlueprintsRequest;
-
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetScheduledBlueprintsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: GetScheduledBlueprintsRequest): GetScheduledBlueprintsRequest.AsObject;
@@ -2088,7 +2081,6 @@ export class GetScheduledBlueprintsRequest extends jspb.Message {
 
 export namespace GetScheduledBlueprintsRequest {
   export type AsObject = {
-    protocolversion: string,
   }
 }
 

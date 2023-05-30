@@ -4,7 +4,7 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poetry]
 name = "bfportal_grpc"
-version = "0.1.3"
+version = "0.1.4"
 description = " bf2042 portal web grpc as python package "
 readme = "Readme.md"
 authors = ["iiTzArcur <arcur@gametools.network>"]

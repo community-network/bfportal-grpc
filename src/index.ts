@@ -1,4 +1,4 @@
-export { ClientAuthenticationClient } from './proto/AuthenticationServiceClientPb'
+export { AuthenticationClient } from './proto/AuthenticationServiceClientPb'
 export * as authentication from './proto/authentication_pb'
 export { CommunityGamesClient } from './proto/CommunitygamesServiceClientPb'
 export * as communitygames from './proto/communitygames_pb'

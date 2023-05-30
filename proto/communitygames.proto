@@ -345,7 +345,6 @@ message Playground {
 
 message ListPlaygroundsByOwnerRequest {
     string blueprintType = 1;
-    string protocolVersion = 2;
 }
 
 message GetConstraintsRequest {
@@ -509,7 +508,6 @@ message GetProgressionTypesResponse {
 }
 
 message GetScheduledBlueprintsRequest {
-    string protocolVersion = 1;
 }
 
 message GetScheduledBlueprintsResponse {

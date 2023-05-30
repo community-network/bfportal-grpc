@@ -16,7 +16,7 @@ import * as grpcWeb from 'grpc-web';
 import * as authentication_pb from './authentication_pb';
 
 
-export class ClientAuthenticationClient {
+export class AuthenticationClient {
   client_: grpcWeb.AbstractClientBase;
   hostname_: string;
   credentials_: null | { [index: string]: string; };
@@ -36,7 +36,7 @@ export class ClientAuthenticationClient {
   }
 
   methodDescriptorviaAuthCode = new grpcWeb.MethodDescriptor(
-    '/web.authentication.ClientAuthentication/viaAuthCode',
+    '/web.authentication.Authentication/viaAuthCode',
     grpcWeb.MethodType.UNARY,
     authentication_pb.AuthRequest,
     authentication_pb.AuthResponse,
@@ -64,7 +64,7 @@ export class ClientAuthenticationClient {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +
-          '/web.authentication.ClientAuthentication/viaAuthCode',
+          '/web.authentication.Authentication/viaAuthCode',
         request,
         metadata || {},
         this.methodDescriptorviaAuthCode,
@@ -72,14 +72,14 @@ export class ClientAuthenticationClient {
     }
     return this.client_.unaryCall(
     this.hostname_ +
-      '/web.authentication.ClientAuthentication/viaAuthCode',
+      '/web.authentication.Authentication/viaAuthCode',
     request,
     metadata || {},
     this.methodDescriptorviaAuthCode);
   }
 
   methodDescriptorlogout = new grpcWeb.MethodDescriptor(
-    '/web.authentication.ClientAuthentication/logout',
+    '/web.authentication.Authentication/logout',
     grpcWeb.MethodType.UNARY,
     authentication_pb.Empty,
     authentication_pb.Empty,
@@ -107,7 +107,7 @@ export class ClientAuthenticationClient {
     if (callback !== undefined) {
       return this.client_.rpcCall(
         this.hostname_ +
-          '/web.authentication.ClientAuthentication/logout',
+          '/web.authentication.Authentication/logout',
         request,
         metadata || {},
         this.methodDescriptorlogout,
@@ -115,7 +115,7 @@ export class ClientAuthenticationClient {
     }
     return this.client_.unaryCall(
     this.hostname_ +
-      '/web.authentication.ClientAuthentication/logout',
+      '/web.authentication.Authentication/logout',
     request,
     metadata || {},
     this.methodDescriptorlogout);
