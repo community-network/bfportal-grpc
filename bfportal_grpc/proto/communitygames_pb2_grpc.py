@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from proto import communitygames_pb2 as proto_dot_communitygames__pb2
+import communitygames_pb2 as communitygames__pb2
 
 
 class CommunityGamesStub(object):
@@ -16,53 +16,53 @@ class CommunityGamesStub(object):
         """
         self.createPlayground = channel.unary_unary(
                 '/web.communitygames.CommunityGames/createPlayground',
-                request_serializer=proto_dot_communitygames__pb2.CreatePlaygroundRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.CreatePlaygroundResponse.FromString,
+                request_serializer=communitygames__pb2.CreatePlaygroundRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.CreatePlaygroundResponse.FromString,
                 )
         self.updatePlayground = channel.unary_unary(
                 '/web.communitygames.CommunityGames/updatePlayground',
-                request_serializer=proto_dot_communitygames__pb2.UpdatePlaygroundRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.UpdatePlaygroundResponse.FromString,
+                request_serializer=communitygames__pb2.UpdatePlaygroundRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.UpdatePlaygroundResponse.FromString,
                 )
         self.deletePlayground = channel.unary_unary(
                 '/web.communitygames.CommunityGames/deletePlayground',
-                request_serializer=proto_dot_communitygames__pb2.DeletePlaygroundRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.DeletePlaygroundResponse.FromString,
+                request_serializer=communitygames__pb2.DeletePlaygroundRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.DeletePlaygroundResponse.FromString,
                 )
         self.getPlayground = channel.unary_unary(
                 '/web.communitygames.CommunityGames/getPlayground',
-                request_serializer=proto_dot_communitygames__pb2.GetPlaygroundRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.PlaygroundInfoResponse.FromString,
+                request_serializer=communitygames__pb2.GetPlaygroundRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.PlaygroundInfoResponse.FromString,
                 )
         self.listPlaygroundsByOwner = channel.unary_unary(
                 '/web.communitygames.CommunityGames/listPlaygroundsByOwner',
-                request_serializer=proto_dot_communitygames__pb2.ListPlaygroundsByOwnerRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.ListPlaygroundsByOwnerResponse.FromString,
+                request_serializer=communitygames__pb2.ListPlaygroundsByOwnerRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.ListPlaygroundsByOwnerResponse.FromString,
                 )
         self.getBlueprintsById = channel.unary_unary(
                 '/web.communitygames.CommunityGames/getBlueprintsById',
-                request_serializer=proto_dot_communitygames__pb2.GetBlueprintsByIdRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.GetBlueprintsByIdResponse.FromString,
+                request_serializer=communitygames__pb2.GetBlueprintsByIdRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.GetBlueprintsByIdResponse.FromString,
                 )
         self.getScheduledBlueprints = channel.unary_unary(
                 '/web.communitygames.CommunityGames/getScheduledBlueprints',
-                request_serializer=proto_dot_communitygames__pb2.GetScheduledBlueprintsRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.GetScheduledBlueprintsResponse.FromString,
+                request_serializer=communitygames__pb2.GetScheduledBlueprintsRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.GetScheduledBlueprintsResponse.FromString,
                 )
         self.getConstraints = channel.unary_unary(
                 '/web.communitygames.CommunityGames/getConstraints',
-                request_serializer=proto_dot_communitygames__pb2.GetConstraintsRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.GetConstraintsResponse.FromString,
+                request_serializer=communitygames__pb2.GetConstraintsRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.GetConstraintsResponse.FromString,
                 )
         self.sharePlayground = channel.unary_unary(
                 '/web.communitygames.CommunityGames/sharePlayground',
-                request_serializer=proto_dot_communitygames__pb2.SharePlaygroundRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.SharePlaygroundResponse.FromString,
+                request_serializer=communitygames__pb2.SharePlaygroundRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.SharePlaygroundResponse.FromString,
                 )
         self.getProgressionTypes = channel.unary_unary(
                 '/web.communitygames.CommunityGames/getProgressionTypes',
-                request_serializer=proto_dot_communitygames__pb2.GetProgressionTypesRequest.SerializeToString,
-                response_deserializer=proto_dot_communitygames__pb2.GetProgressionTypesResponse.FromString,
+                request_serializer=communitygames__pb2.GetProgressionTypesRequest.SerializeToString,
+                response_deserializer=communitygames__pb2.GetProgressionTypesResponse.FromString,
                 )
 
 
@@ -134,53 +134,53 @@ def add_CommunityGamesServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'createPlayground': grpc.unary_unary_rpc_method_handler(
                     servicer.createPlayground,
-                    request_deserializer=proto_dot_communitygames__pb2.CreatePlaygroundRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.CreatePlaygroundResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.CreatePlaygroundRequest.FromString,
+                    response_serializer=communitygames__pb2.CreatePlaygroundResponse.SerializeToString,
             ),
             'updatePlayground': grpc.unary_unary_rpc_method_handler(
                     servicer.updatePlayground,
-                    request_deserializer=proto_dot_communitygames__pb2.UpdatePlaygroundRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.UpdatePlaygroundResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.UpdatePlaygroundRequest.FromString,
+                    response_serializer=communitygames__pb2.UpdatePlaygroundResponse.SerializeToString,
             ),
             'deletePlayground': grpc.unary_unary_rpc_method_handler(
                     servicer.deletePlayground,
-                    request_deserializer=proto_dot_communitygames__pb2.DeletePlaygroundRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.DeletePlaygroundResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.DeletePlaygroundRequest.FromString,
+                    response_serializer=communitygames__pb2.DeletePlaygroundResponse.SerializeToString,
             ),
             'getPlayground': grpc.unary_unary_rpc_method_handler(
                     servicer.getPlayground,
-                    request_deserializer=proto_dot_communitygames__pb2.GetPlaygroundRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.PlaygroundInfoResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.GetPlaygroundRequest.FromString,
+                    response_serializer=communitygames__pb2.PlaygroundInfoResponse.SerializeToString,
             ),
             'listPlaygroundsByOwner': grpc.unary_unary_rpc_method_handler(
                     servicer.listPlaygroundsByOwner,
-                    request_deserializer=proto_dot_communitygames__pb2.ListPlaygroundsByOwnerRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.ListPlaygroundsByOwnerResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.ListPlaygroundsByOwnerRequest.FromString,
+                    response_serializer=communitygames__pb2.ListPlaygroundsByOwnerResponse.SerializeToString,
             ),
             'getBlueprintsById': grpc.unary_unary_rpc_method_handler(
                     servicer.getBlueprintsById,
-                    request_deserializer=proto_dot_communitygames__pb2.GetBlueprintsByIdRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.GetBlueprintsByIdResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.GetBlueprintsByIdRequest.FromString,
+                    response_serializer=communitygames__pb2.GetBlueprintsByIdResponse.SerializeToString,
             ),
             'getScheduledBlueprints': grpc.unary_unary_rpc_method_handler(
                     servicer.getScheduledBlueprints,
-                    request_deserializer=proto_dot_communitygames__pb2.GetScheduledBlueprintsRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.GetScheduledBlueprintsResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.GetScheduledBlueprintsRequest.FromString,
+                    response_serializer=communitygames__pb2.GetScheduledBlueprintsResponse.SerializeToString,
             ),
             'getConstraints': grpc.unary_unary_rpc_method_handler(
                     servicer.getConstraints,
-                    request_deserializer=proto_dot_communitygames__pb2.GetConstraintsRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.GetConstraintsResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.GetConstraintsRequest.FromString,
+                    response_serializer=communitygames__pb2.GetConstraintsResponse.SerializeToString,
             ),
             'sharePlayground': grpc.unary_unary_rpc_method_handler(
                     servicer.sharePlayground,
-                    request_deserializer=proto_dot_communitygames__pb2.SharePlaygroundRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.SharePlaygroundResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.SharePlaygroundRequest.FromString,
+                    response_serializer=communitygames__pb2.SharePlaygroundResponse.SerializeToString,
             ),
             'getProgressionTypes': grpc.unary_unary_rpc_method_handler(
                     servicer.getProgressionTypes,
-                    request_deserializer=proto_dot_communitygames__pb2.GetProgressionTypesRequest.FromString,
-                    response_serializer=proto_dot_communitygames__pb2.GetProgressionTypesResponse.SerializeToString,
+                    request_deserializer=communitygames__pb2.GetProgressionTypesRequest.FromString,
+                    response_serializer=communitygames__pb2.GetProgressionTypesResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -204,8 +204,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/createPlayground',
-            proto_dot_communitygames__pb2.CreatePlaygroundRequest.SerializeToString,
-            proto_dot_communitygames__pb2.CreatePlaygroundResponse.FromString,
+            communitygames__pb2.CreatePlaygroundRequest.SerializeToString,
+            communitygames__pb2.CreatePlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -221,8 +221,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/updatePlayground',
-            proto_dot_communitygames__pb2.UpdatePlaygroundRequest.SerializeToString,
-            proto_dot_communitygames__pb2.UpdatePlaygroundResponse.FromString,
+            communitygames__pb2.UpdatePlaygroundRequest.SerializeToString,
+            communitygames__pb2.UpdatePlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -238,8 +238,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/deletePlayground',
-            proto_dot_communitygames__pb2.DeletePlaygroundRequest.SerializeToString,
-            proto_dot_communitygames__pb2.DeletePlaygroundResponse.FromString,
+            communitygames__pb2.DeletePlaygroundRequest.SerializeToString,
+            communitygames__pb2.DeletePlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -255,8 +255,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/getPlayground',
-            proto_dot_communitygames__pb2.GetPlaygroundRequest.SerializeToString,
-            proto_dot_communitygames__pb2.PlaygroundInfoResponse.FromString,
+            communitygames__pb2.GetPlaygroundRequest.SerializeToString,
+            communitygames__pb2.PlaygroundInfoResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -272,8 +272,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/listPlaygroundsByOwner',
-            proto_dot_communitygames__pb2.ListPlaygroundsByOwnerRequest.SerializeToString,
-            proto_dot_communitygames__pb2.ListPlaygroundsByOwnerResponse.FromString,
+            communitygames__pb2.ListPlaygroundsByOwnerRequest.SerializeToString,
+            communitygames__pb2.ListPlaygroundsByOwnerResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -289,8 +289,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/getBlueprintsById',
-            proto_dot_communitygames__pb2.GetBlueprintsByIdRequest.SerializeToString,
-            proto_dot_communitygames__pb2.GetBlueprintsByIdResponse.FromString,
+            communitygames__pb2.GetBlueprintsByIdRequest.SerializeToString,
+            communitygames__pb2.GetBlueprintsByIdResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -306,8 +306,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/getScheduledBlueprints',
-            proto_dot_communitygames__pb2.GetScheduledBlueprintsRequest.SerializeToString,
-            proto_dot_communitygames__pb2.GetScheduledBlueprintsResponse.FromString,
+            communitygames__pb2.GetScheduledBlueprintsRequest.SerializeToString,
+            communitygames__pb2.GetScheduledBlueprintsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -323,8 +323,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/getConstraints',
-            proto_dot_communitygames__pb2.GetConstraintsRequest.SerializeToString,
-            proto_dot_communitygames__pb2.GetConstraintsResponse.FromString,
+            communitygames__pb2.GetConstraintsRequest.SerializeToString,
+            communitygames__pb2.GetConstraintsResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -340,8 +340,8 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/sharePlayground',
-            proto_dot_communitygames__pb2.SharePlaygroundRequest.SerializeToString,
-            proto_dot_communitygames__pb2.SharePlaygroundResponse.FromString,
+            communitygames__pb2.SharePlaygroundRequest.SerializeToString,
+            communitygames__pb2.SharePlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -357,7 +357,7 @@ class CommunityGames(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.communitygames.CommunityGames/getProgressionTypes',
-            proto_dot_communitygames__pb2.GetProgressionTypesRequest.SerializeToString,
-            proto_dot_communitygames__pb2.GetProgressionTypesResponse.FromString,
+            communitygames__pb2.GetProgressionTypesRequest.SerializeToString,
+            communitygames__pb2.GetProgressionTypesResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

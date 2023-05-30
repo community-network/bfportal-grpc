@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from proto import authentication_pb2 as proto_dot_authentication__pb2
+import authentication_pb2 as authentication__pb2
 
 
 class AuthenticationStub(object):
@@ -16,13 +16,13 @@ class AuthenticationStub(object):
         """
         self.viaAuthCode = channel.unary_unary(
                 '/web.authentication.Authentication/viaAuthCode',
-                request_serializer=proto_dot_authentication__pb2.AuthRequest.SerializeToString,
-                response_deserializer=proto_dot_authentication__pb2.AuthResponse.FromString,
+                request_serializer=authentication__pb2.AuthRequest.SerializeToString,
+                response_deserializer=authentication__pb2.AuthResponse.FromString,
                 )
         self.logout = channel.unary_unary(
                 '/web.authentication.Authentication/logout',
-                request_serializer=proto_dot_authentication__pb2.Empty.SerializeToString,
-                response_deserializer=proto_dot_authentication__pb2.Empty.FromString,
+                request_serializer=authentication__pb2.Empty.SerializeToString,
+                response_deserializer=authentication__pb2.Empty.FromString,
                 )
 
 
@@ -46,13 +46,13 @@ def add_AuthenticationServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'viaAuthCode': grpc.unary_unary_rpc_method_handler(
                     servicer.viaAuthCode,
-                    request_deserializer=proto_dot_authentication__pb2.AuthRequest.FromString,
-                    response_serializer=proto_dot_authentication__pb2.AuthResponse.SerializeToString,
+                    request_deserializer=authentication__pb2.AuthRequest.FromString,
+                    response_serializer=authentication__pb2.AuthResponse.SerializeToString,
             ),
             'logout': grpc.unary_unary_rpc_method_handler(
                     servicer.logout,
-                    request_deserializer=proto_dot_authentication__pb2.Empty.FromString,
-                    response_serializer=proto_dot_authentication__pb2.Empty.SerializeToString,
+                    request_deserializer=authentication__pb2.Empty.FromString,
+                    response_serializer=authentication__pb2.Empty.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -76,8 +76,8 @@ class Authentication(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.authentication.Authentication/viaAuthCode',
-            proto_dot_authentication__pb2.AuthRequest.SerializeToString,
-            proto_dot_authentication__pb2.AuthResponse.FromString,
+            authentication__pb2.AuthRequest.SerializeToString,
+            authentication__pb2.AuthResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
 
@@ -93,7 +93,7 @@ class Authentication(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.authentication.Authentication/logout',
-            proto_dot_authentication__pb2.Empty.SerializeToString,
-            proto_dot_authentication__pb2.Empty.FromString,
+            authentication__pb2.Empty.SerializeToString,
+            authentication__pb2.Empty.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
