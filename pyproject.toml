@@ -16,14 +16,12 @@ classifiers = [
 ]
 keywords = ["bfportal", "grpc", "Battlefield portal"]
 repository = "https://github.com/community-network/bfportal-grpc"
-packages = [
-    { include = "bfportal_grpc" },
-]
+packages = [{ include = "bfportal_grpc" }]
 
 [tool.poetry.dependencies]
-aiohttp = "^3.8.1"
-protobuf = "4.21.6"
-grpcio = "1.48.1"
+aiohttp = "^3.8.5"
+protobuf = "^4.24.3"
+grpcio = "^1.58"
 python = "^3.10"
 
 [tool.poetry.urls]
@@ -32,20 +30,20 @@ python = "^3.10"
 [tool.poetry.dev-dependencies]
 pytest = "*"
 sonora = "*"
-grpcio-tools = "*"
-proto-compile ="*"
+grpcio-tools = "^1.58"
+proto-compile = "*"
 black = "*"
 isort = "*"
 
 [tool.isort]
-profile                   = "black"
-import_heading_stdlib     = "Standard library imports"
+profile = "black"
+import_heading_stdlib = "Standard library imports"
 import_heading_thirdparty = "Third party imports"
 import_heading_firstparty = "Reader imports"
 
 [tool.mypy]
 strict = true
 
-    [[tool.mypy.overrides]]
-    module                 = "feedparser"
-    ignore_missing_imports = true
+[[tool.mypy.overrides]]
+module = "feedparser"
+ignore_missing_imports = true
