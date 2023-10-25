@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from . import reporting_pb2 as proto_dot_reporting__pb2
+import reporting_pb2 as reporting__pb2
 
 
 class WebReportingStub(object):
@@ -16,8 +16,8 @@ class WebReportingStub(object):
         """
         self.reportPlayground = channel.unary_unary(
                 '/web.reporting.WebReporting/reportPlayground',
-                request_serializer=proto_dot_reporting__pb2.ReportPlaygroundRequest.SerializeToString,
-                response_deserializer=proto_dot_reporting__pb2.ReportPlaygroundResponse.FromString,
+                request_serializer=reporting__pb2.ReportPlaygroundRequest.SerializeToString,
+                response_deserializer=reporting__pb2.ReportPlaygroundResponse.FromString,
                 )
 
 
@@ -35,8 +35,8 @@ def add_WebReportingServicer_to_server(servicer, server):
     rpc_method_handlers = {
             'reportPlayground': grpc.unary_unary_rpc_method_handler(
                     servicer.reportPlayground,
-                    request_deserializer=proto_dot_reporting__pb2.ReportPlaygroundRequest.FromString,
-                    response_serializer=proto_dot_reporting__pb2.ReportPlaygroundResponse.SerializeToString,
+                    request_deserializer=reporting__pb2.ReportPlaygroundRequest.FromString,
+                    response_serializer=reporting__pb2.ReportPlaygroundResponse.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -60,7 +60,7 @@ class WebReporting(object):
             timeout=None,
             metadata=None):
         return grpc.experimental.unary_unary(request, target, '/web.reporting.WebReporting/reportPlayground',
-            proto_dot_reporting__pb2.ReportPlaygroundRequest.SerializeToString,
-            proto_dot_reporting__pb2.ReportPlaygroundResponse.FromString,
+            reporting__pb2.ReportPlaygroundRequest.SerializeToString,
+            reporting__pb2.ReportPlaygroundResponse.FromString,
             options, channel_credentials,
             insecure, call_credentials, compression, wait_for_ready, timeout, metadata)

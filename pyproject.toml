@@ -35,6 +35,9 @@ proto-compile = "*"
 black = "*"
 isort = "*"
 
+[tool.poetry.scripts]
+compile-proto = "bfportal_grpc.compile:compile_proto"
+
 [tool.isort]
 profile = "black"
 import_heading_stdlib = "Standard library imports"

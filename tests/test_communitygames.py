@@ -1,6 +1,8 @@
 import asyncio
 import sonora.aio
+import json
 from bfportal_grpc import communitygames_pb2, communitygames_pb2_grpc
+
 
 async def test__playground():
     async with sonora.aio.insecure_web_channel(
@@ -9,10 +11,11 @@ async def test__playground():
         stub = communitygames_pb2_grpc.CommunityGamesStub(channel)
         response: communitygames_pb2.PlaygroundInfoResponse = await stub.getPlayground(communitygames_pb2.GetPlaygroundRequest(playgroundId="10992a10-461a-11ec-8de0-d9f491f92236"), metadata=(
             ('x-dice-tenancy', 'prod_default-prod_default-kingston-common'),
-            ('x-gateway-session-id', 'web-c6b312c9-2520-4fde-958d-60ae71840a65'),
+            ('x-gateway-session-id', 'web-e4e7c085-4550-4035-9944-7d86842e9c83'),
             ('x-grpc-web', '1'),
             ('x-user-agent', 'grpc-web-javascript/0.1')
         ))
+        print(json.dumps(json.loads(response.playground.originalPlayground.modRules.compatibleRules.rules), indent=4))
         assert isinstance(response.playground.originalPlayground.name, str)
             
 if __name__ == "__main__":
