@@ -2,7 +2,7 @@ import subprocess
 from pathlib import Path
 import os
 
-PROJECT_ROOT = Path(__file__).parent.parent
+PROJECT_ROOT = Path(__file__).parent.parent.parent
 OUT_DIR = PROJECT_ROOT / "bfportal_grpc" / "proto"
 INPUT_PROTO_FILES_DIR = PROJECT_ROOT / "proto"
 

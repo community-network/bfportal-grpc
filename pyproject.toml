@@ -23,20 +23,25 @@ aiohttp = "^3.8.5"
 protobuf = "^4.24.3"
 grpcio = "^1.58"
 python = "^3.10"
+proto-compile = "^0.1.7"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/community-network/bfportal-grpc/issues"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.scripts]
+compile-proto = "bfportal_grpc.helpers.compile:compile_proto"
+
+
+[tool.poetry.group.dev.dependencies]
 pytest = "*"
 sonora = "*"
-grpcio-tools = "^1.58"
-proto-compile = "*"
 black = "*"
 isort = "*"
+grpcio-tools = "^1.59.0"
 
-[tool.poetry.scripts]
-compile-proto = "bfportal_grpc.compile:compile_proto"
+[tool.poetry.build]
+generate-setup-file = false
+script = "bfportal_grpc/helpers/compile.py"
 
 [tool.isort]
 profile = "black"

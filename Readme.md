@@ -178,6 +178,6 @@ python package used: https://github.com/romnn/proto-compile
 ### Pushing your changes
 
 package versions can be made with `npm run build` and `npm version patch` `git push --tags origin main` to release.
-for python patch with `npm run build:python`, `npm run python:setimports` and `poetry build`.
+for python `poetry build`.
 
 example library used: https://github.com/tomchen/example-typescript-package
