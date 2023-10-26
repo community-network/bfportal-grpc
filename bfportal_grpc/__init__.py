@@ -18,7 +18,7 @@ try:
         localization_pb2_grpc,
         localization_pb2,
         reporting_pb2_grpc,
-        reporting_pb2
+        reporting_pb2,
     )
 except ImportError:
     print("Please run `poetry run compile-proto` to compile the proto files.")

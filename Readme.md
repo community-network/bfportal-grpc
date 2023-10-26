@@ -170,7 +170,7 @@ pip3 install grpcio-tools
 
 and build with:
 ```shell
-python3 -m grpc_tools.protoc -I. --python_out=./bfportal_grpc --grpc_python_out=./bfportal_grpc ./proto/communitygames.proto ./proto/localization.proto ./proto/authentication.proto ./proto/reporting.proto
+poetry run compile_proto
 ```
 
 python package used: https://github.com/romnn/proto-compile

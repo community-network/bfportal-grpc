@@ -24,6 +24,8 @@ protobuf = "^4.24.3"
 grpcio = "^1.58"
 python = "^3.10"
 proto-compile = "^0.1.7"
+pytest-asyncio = "^0.21.1"
+python-dotenv = "^1.0.0"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/community-network/bfportal-grpc/issues"
