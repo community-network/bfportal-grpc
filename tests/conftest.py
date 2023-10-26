@@ -5,7 +5,6 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# todo: create a model playground object and use that
 
 
 @pytest.fixture()
