@@ -154,22 +154,30 @@ if __name__ == "__main__":
 ### current build method from proto to javascript via python
 
 needs proto-compile, which can be installed with:
-`pip3 install proto-compile`
+```shell
+pip3 install proto-compile
+```
 
 and build with:
-`proto-compile --clear-output-dirs --verbosity=1 ./proto ./src/proto grpc-web --grpc_web_out_options="import_style=typescript,mode=grpcweb"`
+```shell
+proto-compile --clear-output-dirs --verbosity=1 ./proto ./src/proto grpc-web --grpc_web_out_options="import_style=typescript,mode=grpcweb"
+```
 
 building for python requires grpcio-tools, which can be installed with:
-`pip3 install grpcio-tools`
+```shell
+pip3 install grpcio-tools
+```
 
 and build with:
-`python3 -m grpc_tools.protoc -I. --python_out=./bfportal_grpc --grpc_python_out=./bfportal_grpc ./proto/communitygames.proto ./proto/localization.proto ./proto/authentication.proto ./proto/reporting.proto`
+```shell
+poetry run compile_proto
+```
 
 python package used: https://github.com/romnn/proto-compile
 
 ### Pushing your changes
 
 package versions can be made with `npm run build` and `npm version patch` `git push --tags origin main` to release.
-for python patch with `npm run build:python`, `npm run python:setimports` and `poetry build`.
+for python `poetry build`.
 
 example library used: https://github.com/tomchen/example-typescript-package

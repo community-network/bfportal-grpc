@@ -1,19 +1,28 @@
-import asyncio
-import sonora.aio
-from bfportal_grpc import communitygames_pb2, communitygames_pb2_grpc
+import pytest
+from bfportal_grpc import communitygames_pb2
+from bfportal_grpc.proto.communitygames_pb2_grpc import CommunityGamesStub
 
-async def test__playground():
-    async with sonora.aio.insecure_web_channel(
-        f"https://kingston-prod-wgw-envoy.ops.dice.se"
-    ) as channel:
-        stub = communitygames_pb2_grpc.CommunityGamesStub(channel)
-        response: communitygames_pb2.PlaygroundInfoResponse = await stub.getPlayground(communitygames_pb2.GetPlaygroundRequest(playgroundId="10992a10-461a-11ec-8de0-d9f491f92236"), metadata=(
-            ('x-dice-tenancy', 'prod_default-prod_default-kingston-common'),
-            ('x-gateway-session-id', 'web-c6b312c9-2520-4fde-958d-60ae71840a65'),
-            ('x-grpc-web', '1'),
-            ('x-user-agent', 'grpc-web-javascript/0.1')
-        ))
-        assert isinstance(response.playground.originalPlayground.name, str)
-            
-if __name__ == "__main__":
-    asyncio.run(test__playground())
+
+@pytest.fixture
+def stub(web_channel) -> CommunityGamesStub:
+    yield CommunityGamesStub(web_channel)
+
+
+async def test_get_playground(playground_id, request_metadata, stub):
+    response: communitygames_pb2.PlaygroundInfoResponse = await stub.getPlayground(
+        communitygames_pb2.GetPlaygroundRequest(playgroundId=playground_id),
+        metadata=request_metadata,
+    )
+    playground = response.playground.validatedPlayground
+
+    assert playground is not None
+    assert playground.playgroundId == playground_id
+    assert playground.name == "Portal Helper Discord Bot's Api test field"
+
+
+async def test_share_playground(playground_id, request_metadata, stub):
+    response: communitygames_pb2.SharePlaygroundResponse = await stub.sharePlayground(
+        communitygames_pb2.SharePlaygroundRequest(playgroundId=playground_id),
+        metadata=request_metadata
+    )
+    assert response.shortCode.code == "aau5d1"

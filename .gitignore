@@ -116,3 +116,5 @@ dist
 .pnp.*
 
 __pycache__
+.idea
+temp/
